@@ -37,11 +37,8 @@ function fetchingUser(username){
             console.log(userData.bio);
 
             userProfile.src = userData.avatar_url;
-          if(checkingData(userData.name,userName)){
-            userName.textContent = userData.name;
-           }else{
-            userName.textContent = "Yet to write his Name";
-           }
+           checkingData(userData.name,userName)
+          
             let createdAt = userData.created_at;
             let dateFun = new Date(createdAt);
 
