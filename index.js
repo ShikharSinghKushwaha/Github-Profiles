@@ -66,7 +66,7 @@ function fetchingUser(username){
           }).catch((err) =>{
            
             if(err){
-             alert('User not Found try searching the Web')
+             alert('User not Found ,check the spelling error or try searching the Web')
             }  
               console.log('user not found',err);
           })
@@ -91,6 +91,7 @@ loader.style.display = 'block';
   
     errorMsg.style.display = "none";
     searchContainer.style.border = "";
+       return true;
    }
 }
 
@@ -106,9 +107,7 @@ searchBtn.addEventListener('click',function() {
   contentLoaded();
    
  }else{
-
-    errorMsg.style.display = "block";
-  
+  contentLoaded();
 }
 });
 
