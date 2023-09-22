@@ -68,7 +68,7 @@ function fetchingUser(username){
             if(err){
              alert('User not Found try searching the Web')
             }  
-              console.log('user not found'+err);
+              console.log('user not found',err);
           })
 }
 
@@ -86,14 +86,8 @@ function validateInput(){
     errorMsg.style.display = "block";
      searchContainer.style.border = "2px solid red";
      loader.style.display = 'none';
-   }else{
-   let check =  searchInput.value;
-   let convertToString = check.toString().toLowerCase().split(" ").join("");
-   
-   console.log(typeof convertToString);
-   console.log(convertToString);
-   console.log(check)
-    loader.style.display = 'block';
+   }else{ 
+loader.style.display = 'block';
   
     errorMsg.style.display = "none";
     searchContainer.style.border = "";
@@ -102,16 +96,18 @@ function validateInput(){
 
 console.log(profileContainer.firstChild);
 
+let convertToString ;
 searchBtn.addEventListener('click',function() {
 
   let validate = validateInput()
  if(validate){
- 
+  let check =  searchInput.value;
+    convertToString = check.toString().toLowerCase().split(" ").join("");
   contentLoaded();
    
  }else{
-  contentLoaded();
- 
+
+    errorMsg.style.display = "block";
   
 }
 });
@@ -123,7 +119,7 @@ function contentLoaded(){
 
   setTimeout( () => {
    
-    fetchingUser(searchInput.value);
+    fetchingUser(convertToString);
   loader.style.display = 'none';
 
   },2000);
